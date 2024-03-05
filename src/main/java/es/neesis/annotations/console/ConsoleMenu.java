@@ -21,7 +21,8 @@ public class ConsoleMenu {
     public void startMenu() {
         // Hacer bucles sin condicion de salida es peligroso, ya que si no se sale del bucle, el programa se quedará colgado.
         // Mucho cuidado con esto, es mejor añadir líneas extra de código que no correr el riesgo de que el programa se quede colgado.
-        while (true) {
+        Boolean salida = false;
+        while (salida) {
             System.out.println("Bienvenido a la calculadora, selecciona una operación: ");
             System.out.println("1. Suma");
             System.out.println("2. Resta");
@@ -34,7 +35,7 @@ public class ConsoleMenu {
 
             if (choice == 5) {
                 System.out.println("Saliendo de la aplicación.");
-                break;
+                salida = true;
             }
             if(choice >= 1 && choice <= 4)
                 performOperation(choice);
