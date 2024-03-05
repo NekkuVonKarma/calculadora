@@ -9,7 +9,8 @@ public class CalculatorApplication {
 
     private ConsoleMenu consola;
 
-    @Autowired
+    // Inyectamos el bean de ConsoleMenu mediante constructor, no es necesario ponerle autowired. Si lo hiciesemos
+    // mediante autowired, lo pondríamos directamente sobre private ConsoleMenu consola y nos olvidamos del constructor.
     public CalculatorApplication(ConsoleMenu consola) {
         this.consola = consola;
     }

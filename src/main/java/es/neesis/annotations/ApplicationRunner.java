@@ -10,7 +10,8 @@ public class ApplicationRunner {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        CalculatorApplication calculator = new CalculatorApplication(new ConsoleMenu(new CalculadoraService()));
+        // Recuperamos el bean de CalculatorApplication desde el contexto
+        CalculatorApplication calculator = context.getBean(CalculatorApplication.class);
         calculator.run();
         System.out.println("--------------------");
 

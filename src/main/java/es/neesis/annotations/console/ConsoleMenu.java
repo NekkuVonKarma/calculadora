@@ -9,14 +9,18 @@ import java.util.Scanner;
 @Component
 public class ConsoleMenu {
     private CalculadoraService calculadoraService;
-    private Scanner scanner = new Scanner(System.in);
+    // Las inicializaciones deberíamos hacerlas en el constructor, no en la declaración.
+    private Scanner scanner;
 
-    @Autowired
+    // Igual que en el CalculatorApplication, no es necesario hacer autowired porque estamos inyectando el bean mediante constructor.
     public ConsoleMenu(CalculadoraService calculatorService) {
         this.calculadoraService = calculatorService;
+        this.scanner = new Scanner(System.in);
     }
 
     public void startMenu() {
+        // Hacer bucles sin condicion de salida es peligroso, ya que si no se sale del bucle, el programa se quedará colgado.
+        // Mucho cuidado con esto, es mejor añadir líneas extra de código que no correr el riesgo de que el programa se quede colgado.
         while (true) {
             System.out.println("Bienvenido a la calculadora, selecciona una operación: ");
             System.out.println("1. Suma");
